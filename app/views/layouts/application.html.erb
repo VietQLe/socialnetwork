@@ -5,21 +5,35 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 </head>
 <body>
+	
+<div class='container'>
+	<div class='text-right'>
+		<div><%= flash[:notice] %></div>
+			<% if @current_user %>
+				<div>
+					Hello, <%= @current_user.email %>
+					<button type="button" class="btn btn-danger"><a href="/logout">Logout</a></button>
+				</div>	
+			<% else %>
+				<div>
+					<button type="button" class="btn btn-default"><a href='/signup'>Signup</a></button>
+					<button type="button" class="btn btn-fault"><a href='/login'>Login</a></button>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	</div
+		<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-	<div><%= flash[:notice] %></div>
-		<% if @current_user %>
-			<div>
-				Welcome, <%= @current_user.email %>
-				<a href="/logout">Logout</a>
-			</div>	
-		<% else %>
-			<div>
-				<a href='/signup'>Signup</a>
-				<a href='/login'>Login</a>
-			</div>
-		<% end %>
 		
 <%= yield %>
 
