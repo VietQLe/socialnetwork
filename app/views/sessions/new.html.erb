@@ -1,8 +1,9 @@
 <div class="container">	
 	<h1>Login to your profile</h1>
 	
-		<div class="row">
-			<%= form_tag "/login" do |f| %>
+		
+			<%= form_tag({:url => "/login"}, {:class => "form-horizontal"}) do |f| %>
+			<div class="row">	
 				<div class="form-group">
 					<%= label_tag :email, nil, class: 'col-sm-2 control-label' %>
 					
