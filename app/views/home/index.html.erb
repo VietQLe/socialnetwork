@@ -1,0 +1,18 @@
+<% if @current_user %>
+
+	<% @users.each do |u| %>
+	<p><a href=<%= "/users/#{u.id}" %>><%= u.email %></a></p>
+	<% end %>
+
+<% else %>
+
+	<div class="jumbotron">
+		<div class="container">
+			<div class="text-center">
+				<div class="page-header">
+					<h1>Social place<small>where people chat</small></h1>
+			</div>
+		</div>
+	</div>
+
+<% end %>

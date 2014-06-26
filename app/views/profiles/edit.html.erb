@@ -1,0 +1,15 @@
+<div class='well well-lg'>	
+	<%= form_for @user.profile, url: "/profiles/#{@user.id}" do |f| %>
+	  <input name="_method" type="hidden" value="put" />
+	  <%= f.label :first_name %>
+	  <%= f.text_field :first_name, placeholder: "First Name" %>
+	  <br/>
+	  <%= f.label :last_name %>
+	  <%= f.text_field :last_name, placeholder: "Last Name" %>
+	  <br/>
+	  <%= f.label :bio %>
+	  <%= f.text_area :bio, placeholder: "a little about you..." %>
+	  <br/>
+	  <%= f.submit %>
+	<% end %>
+</div>

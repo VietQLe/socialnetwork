@@ -1,19 +1,21 @@
 class UsersController < ApplicationController
-	def index
-	end
 
-	def new
-	end
+  def new
+  end
 
-	def create
-		user = User.new
-		user.email = params[:user][:email]
-		user.password = params[:user][:password]
-		user.password = params[:user][:password_confirmation]
-		user.save!
-		redirect_to '/login'
-	end
+  def create
+    user = User.new
+    user.email = params[:user][:email]
+    user.password = params[:user][:password]
+    user.password_confirmation = params[:user][:password_confirmation]
+    user.save!
+    session[:user_id] = user.id.to_s
+    redirect_to "/profile/#{user.id}"
+  end
 
-	def show
-	end
+  def show
+    @user = User.where(id: params[:id]).first
+    
+  end
+
 end

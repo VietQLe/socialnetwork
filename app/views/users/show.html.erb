@@ -1,1 +1,12 @@
-<h1>Hello</h1>
+<p>Hello, <%= @user.email %>!</p>
+<a href=<%= "/profiles/#{@user.id}/edit" %>>Edit Profile</a>
+
+<h3>Current Profile:</h3>
+
+<% if @user.profile.present? %>
+
+<%= @user.profile.first_name %>
+<% else %>
+	<p>nothing</p>
+	<% end %>
+	
