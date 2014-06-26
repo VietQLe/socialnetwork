@@ -1,6 +1,8 @@
 <div class='well well-lg'>	
 	<%= form_for @user.profile, url: "/profiles/#{@user.id}" do |f| %>
 	  <input name="_method" type="hidden" value="put" />
+	  <%= f.file_field :image %>
+	  <br/>
 	  <%= f.label :first_name %>
 	  <%= f.text_field :first_name, placeholder: "First Name" %>
 	  <br/>

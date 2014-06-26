@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
     user.profile.first_name = params[:profile][:first_name]
     user.profile.last_name = params[:profile][:last_name]
     user.profile.bio = params[:profile][:bio]
+    user.profile.image = params[:profile][:image]
     user.profile.save!
     redirect_to "/profile/#{user.id}"
   end

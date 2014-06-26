@@ -4,9 +4,11 @@
 <h3>Current Profile:</h3>
 
 <% if @user.profile.present? %>
-
+<img src='<%= @user.profile.image %>', height="100" />
+<br />
 <%= @user.profile.first_name %>
 <% else %>
 	<p>nothing</p>
+	<img src='<%= @user.profile.image %>'>
 	<% end %>
 	
