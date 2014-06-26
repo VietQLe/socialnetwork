@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   	get '/profiles/:id/edit' => 'profiles#edit'
   	put '/profiles/:id' => 'profiles#update'
 
+  	post '/add_post' => 'wallposts#create'
+
 end

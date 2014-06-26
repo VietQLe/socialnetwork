@@ -1,14 +1,30 @@
-<p>Hello, <%= @user.email %>!</p>
-<a href=<%= "/profiles/#{@user.id}/edit" %>>Edit Profile</a>
+<div class='container'>
+	<p>Hello, <%= @user.email %>!</p>
+	<a href=<%= "/profiles/#{@user.id}/edit" %>>Edit Profile</a>
 
-<h3>Current Profile:</h3>
+	<h3>Current Profile:</h3>
 
-<% if @user.profile.present? %>
-<img src='<%= @user.profile.image %>', height="100" />
-<br />
-<%= @user.profile.first_name %>
-<% else %>
-	<p>nothing</p>
-	<img src='<%= @user.profile.image %>'>
+	<% if @user.profile.present? %>
+		<img src='<%= @user.profile.image %>', height="100" />
+		<br />
+		<%= @user.profile.first_name %> <%= @user.profile.last_name %>
+		<br />
+		<%= @user.profile.bio %>
+	<% else %>
+		<p>Profile info empty</p>
+		<% end %>
+
+	<h1>Wall</h1>
+
+	<%= form_for Wallpost.new, url: '/add_post' do |f| %>
+		
+		<% f.label :comment %>
+		<%= f.text_field :comment %>
+
+		<%= f.submit "Add comment" %>
 	<% end %>
+
 	
+
+	
+</div>
